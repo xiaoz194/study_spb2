@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.evan.study_spb2.mapper.EmployeeMapper">
+    <select id="selectAll" resultType="com.evan.study_spb2.entity.Employee">
+        select * from emp;
+    </select>
+
+    <insert id="insert" parameterType="com.evan.study_spb2.entity.Employee">
+        insert into scott.emp (`empno`,`ename`,`job`,`hiredate`,`sal`,`deptno`) values (#{empno},#{ename},#{job},#{hiredate},#{sal},#{deptno});
+    </insert>
+
+    <update id="update" parameterType="com.evan.study_spb2.entity.Employee">
+        update scott.emp set `ename`=#{ename},`job`= #{job},`hiredate`=#{hiredate},`sal`=#{sal},`deptno`=#{deptno} where `empno`=#{empno};
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        delete from scott.emp where empno = #{value};
+    </delete>
+
+</mapper>
